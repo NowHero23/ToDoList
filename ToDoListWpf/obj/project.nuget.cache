@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "3nSICE7MklW3ZW6oGqzOpJpoYxO89Umbx2hXdLpDd6h7MjxR0Hs0qubfaRvUkCYAu9rCJQz1VQScTB4h6VTehQ==",
+  "dgSpecHash": "30m7kZv8sIfJeEY/qFU67t5QRo0sew1VfR/s9QXywk9AtpD1QN8hnXtA+mf/ip231rhkUG9a6UGTqnLiXzYBRQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\source\\repos\\ToDoListWpf\\ToDoListWpf\\ToDoListWpf.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\extended.wpf.toolkit\\4.3.0\\extended.wpf.toolkit.4.3.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Extended.Wpf.Toolkit 4.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Extended.Wpf.Toolkit",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }

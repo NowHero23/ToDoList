@@ -4,9 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoListWpf"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="ToDo App" Height="450" Width="800">
 
+    <Window.Resources>
+        <DataTemplate x:Key="columnTemplate">
+            <Border BorderBrush="Red" BorderThickness="1">
+                <TextBlock Foreground="Gray" FontSize="18" Text="{Binding Id}"/>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Background="#252525" Loaded="Grid_Loaded" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Button Margin="5,5,5,5" Grid.Column="5" Grid.Row="4" Click="BtnAccept_Click">Accept</Button>
+
+        <Button Margin="5,5,5,5" Grid.Column="0" Grid.Row="4" Click="BtnExport_Click">Export</Button>
+        <Button Margin="5,5,5,5" Grid.Column="1" Grid.Row="4" Click="BtnImport_Click">Import</Button>
+
+        <DataGrid 
+            CanUserAddRows="true" 
+            ItemsSource="{Binding Tasks}"
+            x:Name="DbShowDataGrid" 
+            Grid.RowSpan="4" 
+            Grid.ColumnSpan="6" 
+            Grid.Row="0" 
+            Margin="5,5,5,5" 
+            AutoGeneratingColumn="OnAutoGeneratingColumn" >
+
+        </DataGrid>
     </Grid>
 </Window>
