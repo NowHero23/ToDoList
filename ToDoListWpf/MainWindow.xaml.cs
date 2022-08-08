@@ -15,7 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using ToDoListWpf.Data.Classes;
-
+using System.IO;
+using Newtonsoft.Json;
 
 namespace ToDoListWpf
 {
@@ -32,8 +33,8 @@ namespace ToDoListWpf
 
 
             //BackEnd
-
             
+          
 
 
 
@@ -53,6 +54,8 @@ namespace ToDoListWpf
 
             });
 
+
+            
             
             //timer
             DispatcherTimer LiveTime = new DispatcherTimer();
@@ -81,10 +84,14 @@ namespace ToDoListWpf
             if (result == MessageBoxResult.OK)
             {
                 //Save new data
+
+
             }
             else
             {
-                //Cancel changing  
+                //Cancel changing
+                
+
             }
         }
 
@@ -153,11 +160,17 @@ namespace ToDoListWpf
         private void BtnExport_Click(object sender, RoutedEventArgs e)
         {
             //Read json
+            string fileName = "название файла.json";
+            string jsonString = File.ReadAllText(fileName);
+           UserTask usertask = JsonConvert.DeserializeObject<UserTask>(jsonString)!;
         }
 
         private void BtnImport_Click(object sender, RoutedEventArgs e)
         {
             //Wrote json
+            string jsonString2 = JsonSerializer.Serialize(Tasks);
+            var json = JsonConvert.SerializeObject(obj, Formatting.Indented);
+            File.WriteAllText(@"D:\myJson.json", json);
         }
     }
 }
