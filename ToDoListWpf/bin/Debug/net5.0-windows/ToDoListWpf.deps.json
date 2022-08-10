@@ -9,6 +9,7 @@
       "ToDoListWpf/1.0.0": {
         "dependencies": {
           "Extended.Wpf.Toolkit": "4.3.0",
+          "Hardcodet.NotifyIcon.Wpf": "1.1.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
@@ -77,6 +78,14 @@
           }
         }
       },
+      "Hardcodet.NotifyIcon.Wpf/1.1.0": {
+        "runtime": {
+          "lib/net5.0-windows7.0/Hardcodet.NotifyIcon.Wpf.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.17"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -99,6 +108,13 @@
       "sha512": "sha512-leG4va9wdAk0R92UoycOwacWGPvgdWpNkfezAojkfjg+zxJlvRXUS4hR/urPVzX2dRZh8c7UxmdBIOW7O6N+OA==",
       "path": "extended.wpf.toolkit/4.3.0",
       "hashPath": "extended.wpf.toolkit.4.3.0.nupkg.sha512"
+    },
+    "Hardcodet.NotifyIcon.Wpf/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FFEkdRSidMrbMfQVwhCzq6KtSyR1qQojqtiUrkCyjnOOuMf7W3TNQkzFnBBxYxFe7uLk5mz7M38wFh1qdWyfvg==",
+      "path": "hardcodet.notifyicon.wpf/1.1.0",
+      "hashPath": "hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",

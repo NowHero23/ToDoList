@@ -5,23 +5,126 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoListWpf"
         xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="ToDo App" Height="450" Width="800">
+        Title="ToDo App" Height="500" Width="800" Icon="\Data\icon.ico"
+        MinHeight="500" MinWidth="800"
+        
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        >
 
     <Window.Resources>
+
+        <Style x:Key="YellowCircleBtn" TargetType="Button">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="FontSize" Value="20" />
+
+            <Setter Property="MinHeight" Value="20" />
+            <Setter Property="MinWidth" Value="20" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Stroke="Black"
+                            StrokeThickness="0.5" Fill="#ffff00"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Ellipse Stroke="Black" StrokeThickness="0.5" Fill="#FFBFBF00"/>
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+        <Style x:Key="RedCircleBtn" TargetType="Button">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="20" />
+
+            <Setter Property="MinHeight" Value="20" />
+            <Setter Property="MinWidth" Value="20" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Stroke="Black"
+                            StrokeThickness="0.5">
+                                <Ellipse.Fill>
+                                    <Brush>#FFFF0000</Brush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Ellipse Stroke="Black" StrokeThickness="0.5" Fill="#FFB30000"/>
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Color x:Key="Color1">#EA7E17</Color>
+        <Color x:Key="Color2">#05031D</Color>
+        <Color x:Key="Color3">#4E00FE</Color>
+        <Color x:Key="Color4">#FFFEFD</Color>
+
+
         <DataTemplate x:Key="columnTemplate">
             <Border BorderBrush="Red" BorderThickness="1">
                 <TextBlock Foreground="Gray" FontSize="18" Text="{Binding Id}"/>
             </Border>
         </DataTemplate>
+
+
     </Window.Resources>
-    <Grid Background="#252525" Loaded="Grid_Loaded" >
+
+    <Grid Background="#EA7E17">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="18*"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -32,20 +135,39 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
+        <tb:TaskbarIcon Visibility="Visible" ToolTipText="ToDo App" IconSource="\Data\icon.ico" TrayLeftMouseDown="TaskbarIcon_TrayLeftMouseDown">
+        </tb:TaskbarIcon>
 
-        <Button Margin="5,5,5,5" Grid.Column="5" Grid.Row="4" Click="BtnAccept_Click">Accept</Button>
+        <Grid Grid.ColumnSpan="6" Background="#FF101010" MouseDown="Grid_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
 
-        <Button Margin="5,5,5,5" Grid.Column="0" Grid.Row="4" Click="BtnExport_Click">Export</Button>
-        <Button Margin="5,5,5,5" Grid.Column="1" Grid.Row="4" Click="BtnImport_Click">Import</Button>
+            <Image Source="/Data/icon.ico"  Margin="5"/>
+
+
+            <Button Style="{StaticResource YellowCircleBtn}" Width="29" Height="29" Margin="1" Content="-" Grid.Column="3" Click="minBtn_Click"></Button>
+            <Button Style="{StaticResource RedCircleBtn}" Width="29" Height="29" Margin="1" Content="X" Grid.Column="4" Click="CloseWindow_click"></Button>
+        </Grid>
+
+
+        <Button Background="#4E00FE" Foreground="#FFFEFD" FontSize="16" FontWeight="Bold" Margin="5,5,5,5" Grid.Column="5" Grid.Row="5" Click="BtnAccept_Click">Accept</Button>
+        <Button Margin="5,5,5,5" Grid.Column="0" Grid.Row="5" Click="BtnExport_Click">Export</Button>
+        <Button Margin="5,5,5,5" Grid.Column="1" Grid.Row="5" Click="BtnImport_Click">Import</Button>
 
         <DataGrid 
+            Background="#05031D"
             CanUserAddRows="true" 
             ItemsSource="{Binding Tasks}"
-            x:Name="DbShowDataGrid" 
+            x:Name="Display" 
             Grid.RowSpan="4" 
             Grid.ColumnSpan="6" 
-            Grid.Row="0" 
-            Margin="5,5,5,5" 
+            Grid.Row="1" 
+            Margin="0,0,0,5" 
             AutoGeneratingColumn="OnAutoGeneratingColumn" >
 
         </DataGrid>

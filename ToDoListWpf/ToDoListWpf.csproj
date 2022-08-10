@@ -8,12 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Enums\" />
+    <Compile Remove="Data\Enums\**" />
+    <EmbeddedResource Remove="Data\Enums\**" />
+    <None Remove="Data\Enums\**" />
+    <Page Remove="Data\Enums\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Data\icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.3.0" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Data\icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

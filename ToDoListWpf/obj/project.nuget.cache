@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JNsrSzVEqBEbf0xC07EUAhWLrL8S+pavJXxjJfT20e96koT4rtzOEBbiKXXx+yEIScRR2TUA8stol0tY2UGyHw==",
+  "dgSpecHash": "RA8M19yefDZzOMts9NqBU8tQDK8xlI4udEAJCBP30otIrmNzyfZQQJhBXyTyau57SBymuWbdYMXIFrxnSNgRlA==",
   "success": true,
-  "projectFilePath": "D:\\ToDoList\\ToDoListWpf\\ToDoListWpf.csproj",
+  "projectFilePath": "C:\\Users\\User\\source\\repos\\ToDoListWpf\\ToDoListWpf\\ToDoListWpf.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\talsk\\.nuget\\packages\\extended.wpf.toolkit\\4.3.0\\extended.wpf.toolkit.4.3.0.nupkg.sha512",
-    "C:\\Users\\talsk\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\extended.wpf.toolkit\\4.3.0\\extended.wpf.toolkit.4.3.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": [
     {

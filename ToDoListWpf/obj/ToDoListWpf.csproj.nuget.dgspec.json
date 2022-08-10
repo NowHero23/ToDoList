@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ToDoList\\ToDoListWpf\\ToDoListWpf.csproj": {}
+    "C:\\Users\\User\\source\\repos\\ToDoListWpf\\ToDoListWpf\\ToDoListWpf.csproj": {}
   },
   "projects": {
-    "D:\\ToDoList\\ToDoListWpf\\ToDoListWpf.csproj": {
+    "C:\\Users\\User\\source\\repos\\ToDoListWpf\\ToDoListWpf\\ToDoListWpf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ToDoList\\ToDoListWpf\\ToDoListWpf.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\ToDoListWpf\\ToDoListWpf\\ToDoListWpf.csproj",
         "projectName": "ToDoListWpf",
-        "projectPath": "D:\\ToDoList\\ToDoListWpf\\ToDoListWpf.csproj",
-        "packagesPath": "C:\\Users\\talsk\\.nuget\\packages\\",
-        "outputPath": "D:\\ToDoList\\ToDoListWpf\\obj\\",
+        "projectPath": "C:\\Users\\User\\source\\repos\\ToDoListWpf\\ToDoListWpf\\ToDoListWpf.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\ToDoListWpf\\ToDoListWpf\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\talsk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +43,10 @@
             "Extended.Wpf.Toolkit": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "Hardcodet.NotifyIcon.Wpf": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

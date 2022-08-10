@@ -67,17 +67,12 @@ namespace ToDoListWpf
 
             DataContext = this; 
             
-            DbShowDataGrid.ItemsSource = Tasks.ToList();
+            Display.ItemsSource = Tasks.ToList();
         }
 
         void timer_Tick(object sender, EventArgs e)
         {
             Title = $"ToDo App {DateTime.Now.ToString("HH:mm:ss")}";    
-        }
-
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         private void BtnAccept_Click(object sender, RoutedEventArgs e)
@@ -88,7 +83,7 @@ namespace ToDoListWpf
             {
                 //Save new data
 
-                List<UserTask> list = DbShowDataGrid.Items.OfType<UserTask>().ToList();
+                List<UserTask> list = Display.Items.OfType<UserTask>().ToList();
                 Tasks.Clear();
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -125,15 +120,22 @@ namespace ToDoListWpf
                 Tasks.Clear();
                 Tasks = LoadFromFile(currentPath + currentFileName);
             }
-            DbShowDataGrid.ItemsSource = Tasks.ToList();
+            Display.ItemsSource = Tasks.ToList();
         }
-        
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+        private void CloseWindow_click(object sender, RoutedEventArgs e) => this.Close();
+
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
             e.Column.Header = propertyDescriptor.DisplayName;
             e.Column.Width = DataGridLength.Auto;
-            if (DbShowDataGrid.Columns.Count%2==0)
+            if (Display.Columns.Count%2==0)
             {
                 Style newStyle = new Style(typeof(DataGridCell), e.Column.CellStyle);
                 newStyle.Setters.Add(new Setter(DataGridCell.BackgroundProperty, new SolidColorBrush(Colors.LightBlue)));
@@ -261,7 +263,7 @@ namespace ToDoListWpf
                 MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
             }
 
-            DbShowDataGrid.ItemsSource = Tasks.ToList();
+            Display.ItemsSource = Tasks.ToList();
         }
 
         private List<UserTask> LoadFromFile(string FullPath)
@@ -294,6 +296,17 @@ namespace ToDoListWpf
 
             return tmp;
         }
-        
+
+        private void TaskbarIcon_TrayLeftMouseDown(object sender, RoutedEventArgs e)
+        {
+            this.Show();
+            ShowInTaskbar = true;
+        }
+
+        private void minBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            ShowInTaskbar = false;
+        }
     }
 }
